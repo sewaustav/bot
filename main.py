@@ -2,3 +2,4 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemo
 from aiogram.dispatcher.filters import Command, Text
 from aiogram import Bot, Dispatcher, executor, types
 import psycopg2
+
