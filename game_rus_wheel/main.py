@@ -19,37 +19,39 @@ def game(current, r):
         ret = "Повезло, выстрел оказался холостым"
         return ret
 
-dp.message_handler(commands=["start"])
+@dp.message_handler(commands=["start"])
 async def stsrt(message: types.Message):
     await message.answer("/rul")
 
-dp.message_handler(commands=["rul"])
+@dp.message_handler(commands=["rul"])
 async def rul(message: types.Message):
     await message.answer("введите количество патронов", reply_markup=keyboard_wheel)
 
-dp.message_handler(Text(equals=["1️⃣"]))
+@dp.message_handler(Text(equals=["1️⃣"]))
 async def one_f(message: types.Message):
     a = randint(1, 8)
     aa = game(1, a)
-    await message.answer(aa)
+    await message.answer(aa, reply_markup=ReplyKeyboardRemove())
 
-dp.message_handler(Text(equals=["2️⃣"]))
+@dp.message_handler(Text(equals=["2️⃣"]))
 async def two_f(message: types.Message):
     b = randint(1, 8)
     bb = game(2, b)
-    await message.answer(bb)
+    await message.answer(bb, reply_markup=ReplyKeyboardRemove())
 
-dp.message_handler(Text(equals=["3️⃣"]))
+@dp.message_handler(Text(equals=["3️⃣"]))
 async def three_f(message: types.Message):
     c = randint(1, 8)
     cc = game(3, c)
-    await message.answer(cc)
+    await message.answer(cc, reply_markup=ReplyKeyboardRemove())
 
-dp.message_handler(Text(equals=["4️⃣"]))
+@dp.message_handler(Text(equals=["4️⃣"]))
 async def four_f(message: types.Message):
     d = randint(1, 8)
     dd = game(4, d)
-    await message.answer(dd)
+    await message.answer(dd, reply_markup=ReplyKeyboardRemove())
+
+
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
